@@ -1,4 +1,7 @@
 FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
+ARG CACHEBUST=1
+
+
 
 EXPOSE 80
