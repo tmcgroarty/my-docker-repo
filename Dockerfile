@@ -4,9 +4,11 @@ FROM python:3.11-slim
 WORKDIR /app
 
 #create the directory for logs
-RUN mkdir logs
+RUN mkdir /app/data
+
+CMD ["sleep", "infinity"]
 
 #copy the  current directory contents into the container at /app
-COPY . /app
+#COPY . /app
 
 #EXPOSE 80
