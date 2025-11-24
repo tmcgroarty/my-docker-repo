@@ -16,4 +16,4 @@ RUN apt update && apt install -y \
 WORKDIR /app
 
 # Default command (keeps container alive)
-CMD ["bash"]
+CMD ["sleep", "infinity"]
