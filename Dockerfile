@@ -7,6 +7,6 @@ WORKDIR /app
 RUN mkdir logs
 
 #copy the  current directory contents into the container at /app
-COPY ./app
+COPY . /app
 
 #EXPOSE 80
