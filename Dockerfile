@@ -1,14 +1,19 @@
-FROM python:3.11-slim
+# Use a lightweight base image
+FROM ubuntu:22.04
 
-#set working directory in the container (also create it)
+# Prevent interactive tzdata prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install useful tools
+RUN apt update && apt install -y \
+    bash \
+    curl \
+    vim \
+    iputils-ping \
+    && apt clean
+
+# Create a working directory
 WORKDIR /app
 
-#create the directory for logs
-RUN mkdir /app/data
-
-CMD ["sleep", "infinity"]
-
-#copy the  current directory contents into the container at /app
-#COPY . /app
-
-#EXPOSE 80
+# Default command (keeps container alive)
+CMD ["bash"]
