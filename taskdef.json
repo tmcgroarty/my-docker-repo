@@ -1,0 +1,30 @@
+{
+  "family": "my-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::737361577962:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::737361577962:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "ubuntu-container",
+      "image": "737361577962.dkr.ecr.us-east-2.amazonaws.com/myrepo:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8888,
+          "protocol": "tcp"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/my-task",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
