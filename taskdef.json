@@ -1,5 +1,5 @@
 {
-  "family": "my-task",
+  "family": "task-def-to-build-container",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "256",
@@ -13,18 +13,11 @@
       "essential": true,
       "portMappings": [
         {
-          "containerPort": 4444,
+          "containerPort": 80,
           "protocol": "tcp"
         }
-      ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/my-task",
-          "awslogs-region": "us-east-2",
-          "awslogs-stream-prefix": "ecs"
-        }
-      }
+      ]
     }
   ]
 }
+
